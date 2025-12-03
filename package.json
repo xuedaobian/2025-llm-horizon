@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "2025-ai-模型时间轴": "link:",
+    "@lobehub/icons": "^2.43.1",
     "framer-motion": "^12.23.25",
     "lucide-react": "^0.555.0",
     "react": "^19.2.0",

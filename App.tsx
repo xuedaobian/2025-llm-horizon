@@ -26,13 +26,13 @@ const App: React.FC = () => {
       <header className="relative z-10 pt-20 pb-10 px-4 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-indigo-400 mb-4 animate-fade-in-up">
            <Sparkles size={12} />
-           <span>2025 AI 全景图</span>
+           <span>LLM Timeline 2025</span>
         </div>
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400">
-          推理元年
+          2025 大模型编年史
         </h1>
         <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
-          2025年关键大语言模型发布的综合时间轴，从DeepSeek的高效模型到Google的多模态霸主地位。
+          从 DeepSeek-R1 开年惊艳到 Gemini3 逆天参数，7 大厂商 21 次重磅发布，见证 AI 推理能力与多模态融合的全面爆发。
         </p>
       </header>
 
@@ -62,7 +62,7 @@ const App: React.FC = () => {
       </main>
 
       <footer className="relative z-10 border-t border-slate-900 py-8 text-center text-slate-600 text-sm">
-        <p>© 2025 AI 时间轴可视化。基于 React & Tailwind 构建。</p>
+        <p>© 2025大模型发布时间轴</p>
       </footer>
     </div>
   );

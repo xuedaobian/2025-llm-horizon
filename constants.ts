@@ -1,48 +1,54 @@
 import { TimelineEvent, Vendor, VendorConfig } from './types';
-import { Bot, Cpu, Zap, Brain, Globe, Sparkles } from 'lucide-react';
 
 export const VENDOR_THEMES: Record<Vendor, VendorConfig> = {
   [Vendor.DeepSeek]: {
     color: 'bg-blue-600',
     borderColor: 'border-blue-500',
     badgeColor: 'bg-blue-500/20 text-blue-300',
-    textColor: 'text-blue-400'
+    textColor: 'text-blue-400',
+    icon: 'DeepSeek'
   },
   [Vendor.Google]: {
     color: 'bg-rose-500', // Using a distinct color, though Gemini is usually multi-color
     borderColor: 'border-rose-500',
     badgeColor: 'bg-rose-500/20 text-rose-300',
-    textColor: 'text-rose-400'
+    textColor: 'text-rose-400',
+    icon: 'Gemini'
   },
   [Vendor.xAI]: {
     color: 'bg-stone-100',
     borderColor: 'border-stone-200',
     badgeColor: 'bg-stone-200/20 text-stone-200',
-    textColor: 'text-stone-100'
+    textColor: 'text-stone-100',
+    icon: 'Grok'
   },
   [Vendor.Meta]: {
     color: 'bg-sky-500',
     borderColor: 'border-sky-500',
     badgeColor: 'bg-sky-500/20 text-sky-300',
-    textColor: 'text-sky-400'
+    textColor: 'text-sky-400',
+    icon: 'Meta'
   },
   [Vendor.Alibaba]: {
     color: 'bg-orange-500',
     borderColor: 'border-orange-500',
     badgeColor: 'bg-orange-500/20 text-orange-300',
-    textColor: 'text-orange-400'
+    textColor: 'text-orange-400',
+    icon: 'Qwen'
   },
   [Vendor.OpenAI]: {
     color: 'bg-emerald-500',
     borderColor: 'border-emerald-500',
     badgeColor: 'bg-emerald-500/20 text-emerald-300',
-    textColor: 'text-emerald-400'
+    textColor: 'text-emerald-400',
+    icon: 'GPT'
   },
   [Vendor.Anthropic]: {
     color: 'bg-purple-500',
     borderColor: 'border-purple-500',
     badgeColor: 'bg-purple-500/20 text-purple-300',
-    textColor: 'text-purple-400'
+    textColor: 'text-purple-400',
+    icon: 'Claude'
   }
 };
 
@@ -63,7 +69,7 @@ export const TIMELINE_DATA: TimelineEvent[] = [
     name: 'Gemini 2.0 Pro & Flash',
     vendor: Vendor.Google,
     description: '在复杂任务处理上不仅提升了多模态能力，还引入了更强的“思考”模式（Thinking Mode）。',
-    url: 'https://ai.google.dev/gemini-api/docs/changelog?hl=zh-cn#02-05-2025'
+    url: 'https://ai.google.dev/gemini-api/docs/changelog?hl=zh-cn#02-05-2025',
   },
   {
     id: 'grok-3',
@@ -144,7 +150,6 @@ export const TIMELINE_DATA: TimelineEvent[] = [
     name: 'GPT-5',
     vendor: Vendor.OpenAI,
     description: '辜负了 AGI 期待的版本，但是还是变强了不少。',
-    isSpeculated: true,
     url: 'https://openai.com/zh-Hans-CN/index/introducing-gpt-5/'
   },
   {
@@ -225,7 +230,7 @@ export const TIMELINE_DATA: TimelineEvent[] = [
     dateStr: '12月 1日',
     name: 'DeepSeek V3.2 & Speciale',
     vendor: Vendor.DeepSeek,
-    description: 'Speciale版本专为复杂推理和Agent任务设计，据称在奥数和编程竞赛题目上达到金牌水平。',
+    description: '强化 Agent 能力，融入思考推理,为 v4 做准备',
     url: 'https://api-docs.deepseek.com/zh-cn/news/news251201'
   }
 ];

@@ -1,8 +1,9 @@
 import React from 'react';
-import { TimelineEvent } from '../types';
+import { TimelineEvent, Vendor } from '../types';
 import { VENDOR_THEMES } from '../constants';
-import { Calendar, Bot, Zap, Brain, Globe, Sparkles } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { DeepSeek, Gemini, Grok, Meta, Qwen, OpenAI, Claude } from '@lobehub/icons';
 
 interface TimelineItemProps {
   event: TimelineEvent;
@@ -10,14 +11,27 @@ interface TimelineItemProps {
   isLast: boolean;
 }
 
-// Helper to get an icon based on keywords in description/name
-const getIcon = (text: string) => {
-  const lower = text.toLowerCase();
-  if (lower.includes('thinking') || lower.includes('reasoning') || lower.includes('推理')) return <Brain size={18} />;
-  if (lower.includes('image') || lower.includes('video') || lower.includes('visual')) return <Sparkles size={18} />;
-  if (lower.includes('fast') || lower.includes('flash') || lower.includes('速度')) return <Zap size={18} />;
-  if (lower.includes('multilingual') || lower.includes('language')) return <Globe size={18} />;
-  return <Bot size={18} />;
+// Helper to get vendor icon
+const getVendorIcon = (vendor: Vendor) => {
+  const iconProps = { size: 18 };
+  switch (vendor) {
+    case Vendor.DeepSeek:
+      return <DeepSeek.Color {...iconProps} />;
+    case Vendor.Google:
+      return <Gemini.Color {...iconProps} />;
+    case Vendor.xAI:
+      return <Grok {...iconProps} />;
+    case Vendor.Meta:
+      return <Meta.Color {...iconProps} />;
+    case Vendor.Alibaba:
+      return <Qwen.Color {...iconProps} />;
+    case Vendor.OpenAI:
+      return <OpenAI {...iconProps} />;
+    case Vendor.Anthropic:
+      return <Claude.Color {...iconProps} />;
+    default:
+      return <OpenAI {...iconProps} />;
+  }
 };
 
 const TimelineItem: React.FC<TimelineItemProps> = ({ event, index, isLast }) => {
@@ -75,13 +89,10 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ event, index, isLast }) => 
 
             <div className="flex justify-between items-start mb-3">
               <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider ${theme.badgeColor}`}>
-                {getIcon(event.name + event.description)}
+                {getVendorIcon(event.vendor)}
                 {event.vendor}
               </span>
-              {event.isSpeculated && (
-                 <span className="text-[10px] uppercase border border-slate-700 text-slate-500 px-2 py-0.5 rounded-full">预计</span>
-              )}
-            </div>
+              </div>
             
             <h3 className="text-xl font-bold text-slate-100 mb-2 leading-tight">
               {event.name}

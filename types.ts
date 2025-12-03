@@ -24,4 +24,5 @@ export interface VendorConfig {
   borderColor: string;
   badgeColor: string;
   textColor: string;
+  icon?: string;
 }
