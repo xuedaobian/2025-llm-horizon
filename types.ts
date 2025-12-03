@@ -4,7 +4,8 @@ export enum Vendor {
   xAI = 'xAI',
   Meta = 'Meta',
   Alibaba = 'Alibaba Cloud',
-  OpenAI = 'OpenAI'
+  OpenAI = 'OpenAI',
+  Anthropic = 'Anthropic'
 }
 
 export interface TimelineEvent {
@@ -14,6 +15,7 @@ export interface TimelineEvent {
   name: string;
   vendor: Vendor;
   description: string;
+  url: string;
   isSpeculated?: boolean;
 }
 

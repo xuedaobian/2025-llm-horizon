@@ -37,6 +37,12 @@ export const VENDOR_THEMES: Record<Vendor, VendorConfig> = {
     borderColor: 'border-emerald-500',
     badgeColor: 'bg-emerald-500/20 text-emerald-300',
     textColor: 'text-emerald-400'
+  },
+  [Vendor.Anthropic]: {
+    color: 'bg-purple-500',
+    borderColor: 'border-purple-500',
+    badgeColor: 'bg-purple-500/20 text-purple-300',
+    textColor: 'text-purple-400'
   }
 };
 
@@ -44,83 +50,120 @@ export const TIMELINE_DATA: TimelineEvent[] = [
   {
     id: 'deepseek-r1',
     month: '1月',
-    dateStr: '1月 20日',
+    dateStr: '1月22日',
     name: 'DeepSeek-R1',
     vendor: Vendor.DeepSeek,
-    description: '继2024年底发布DeepSeek-V3后，推出了主打推理能力的R1模型。在逻辑推理和代码生成任务上表现优异，保持开源策略。'
+    description: '开源模型的第一个标杆。',
+    url: 'https://arxiv.org/abs/2501.12948'
   },
   {
-    id: 'gemini-2-flash',
-    month: '1月',
-    dateStr: '1月 30日',
-    name: 'Gemini 2.0 Flash',
-    vendor: Vendor.Google,
-    description: '新的默认模型，以速度和成本优势见长。'
-  },
-  {
-    id: 'gemini-2-pro',
+    id: 'gemini-2',
     month: '2月',
-    dateStr: '2月 5日',
-    name: 'Gemini 2.0 Pro',
+    dateStr: '2月5日',
+    name: 'Gemini 2.0 Pro & Flash',
     vendor: Vendor.Google,
-    description: '在复杂任务处理上不仅提升了多模态能力，还引入了更强的“思考”模式（Thinking Mode）。'
+    description: '在复杂任务处理上不仅提升了多模态能力，还引入了更强的“思考”模式（Thinking Mode）。',
+    url: 'https://ai.google.dev/gemini-api/docs/changelog?hl=zh-cn#02-05-2025'
   },
   {
     id: 'grok-3',
     month: '2月',
-    dateStr: '2月 17日',
+    dateStr: '2月19日',
     name: 'Grok 3',
     vendor: Vendor.xAI,
-    description: '马斯克宣称其为“地球上最聪明的AI”。在拥有10万块H100的集群上训练完成，主打极致推理能力和更少的内容审查。'
+    description: '马斯克宣称其为“地球上最聪明的AI”。在拥有10万块H100的集群上训练完成，主打极致推理能力和更少的内容审查。',
+    url: 'https://x.ai/news/grok-3/'
   },
   {
-    id: 'deepseek-v3-update',
+    id: 'claude3.7',
+    month: '2月',
+    dateStr: '2月24日',
+    name: 'Claude 3.7',
+    vendor: Vendor.Anthropic,
+    description: '和 cc 一起发布的模型，完全改写 2025 年 AI 编程体验',
+    url: 'https://www.anthropic.com/news/claude-3-7-sonnet'
+  },
+  {
+    id: 'deepseek-v3-0324',
     month: '3月',
-    dateStr: '3月 24日',
+    dateStr: '3月24日',
     name: 'DeepSeek-V3 (0324)',
     vendor: Vendor.DeepSeek,
-    description: 'V3版本的迭代更新，进一步优化了模型架构和效率。'
+    description: 'V3版本的迭代更新，改进了后训练方法',
+    url: 'https://api-docs.deepseek.com/zh-cn/news/news250325'
   },
   {
     id: 'llama-4',
     month: '4月',
-    dateStr: '4月 5日',
+    dateStr: '4月5日',
     name: 'Llama 4 (Scout & Maverick)',
     vendor: Vendor.Meta,
-    description: '全面转向MoE（混合专家）架构，支持原生多模态。中小尺寸模型已在开源社区设立新标杆。'
+    description: '全面转向MoE（混合专家）架构，支持原生多模态。中小尺寸模型已在开源社区设立新标杆。',
+    url: 'https://ai.meta.com/blog/llama-4-multimodal-intelligence/'
   },
   {
     id: 'qwen-3',
     month: '4月',
-    dateStr: '4月 29日',
+    dateStr: '4月29日',
     name: 'Qwen 3 Series',
     vendor: Vendor.Alibaba,
-    description: '涵盖从0.6B到235B的多种参数规模。在多语言处理和长文本能力上继续领跑，全面开源。'
+    description: '站在巨人的肩膀上成为了新巨人，而且多点开花大中小模型一应俱全。',
+    url: 'https://qwenlm.github.io/zh/blog/qwen3/'
+  },
+  {
+    id: 'claude4',
+    month: '5月',
+    dateStr: '5月15日',
+    name: 'Claude 4',
+    vendor: Vendor.Anthropic,
+    description: 'Claude 4 系列模型在编码、高级推理和 AI 代理方面树立了新标准',
+    url: 'https://www.anthropic.com/news/claude-4'
+  },
+  {
+    id: 'deepseek-r1-0528',
+    month: '5月',
+    dateStr: '5月 28日',
+    name: 'DeepSeek-R1 Update',
+    vendor: Vendor.DeepSeek,
+    description: 'r1版本的迭代更新，改进后训练方法',
+    url: 'https://api-docs.deepseek.com/zh-cn/news/news250528'
   },
   {
     id: 'gemini-2-5',
     month: '6月',
-    dateStr: '6月 17日',
+    dateStr: '6月17日',
     name: 'Gemini 2.5 Pro & Flash',
     vendor: Vendor.Google,
-    description: '针对“适应性思考”优化。Flash降低延迟，Pro在编码和数学基准测试中刷新记录。'
+    description: '针对“适应性思考”优化。Flash降低延迟，Pro在编码和数学基准测试中刷新记录。',
+    url: 'https://ai.google.dev/gemini-api/docs/changelog?hl=zh-cn#06-17-2025'
   },
   {
     id: 'gpt-5',
     month: '8月',
-    dateStr: '8月 (夏季)',
+    dateStr: '8月7日',
     name: 'GPT-5',
     vendor: Vendor.OpenAI,
-    description: '“全能助手”，将推理模型（o系列）与GPT通用能力融合，具备极强多模态交互和自主Agent能力。',
-    isSpeculated: true
+    description: '辜负了 AGI 期待的版本，但是还是变强了不少。',
+    isSpeculated: true,
+    url: 'https://openai.com/zh-Hans-CN/index/introducing-gpt-5/'
   },
   {
-    id: 'deepseek-v3-1',
+    id: 'deepseek-v3.1',
     month: '8月',
-    dateStr: '8月 21日',
+    dateStr: '8月21日',
     name: 'DeepSeek V3.1',
     vendor: Vendor.DeepSeek,
-    description: '采用全新混合架构，在SWE-bench等特定基准测试上性能提升超过40%。'
+    description: '终于也是混合模型了，提升了 agent 能力',
+    url: 'https://api-docs.deepseek.com/zh-cn/news/news250821'
+  },
+    {
+    id: 'gemini-2-5-image',
+    month: '8月',
+    dateStr: '8月26日',
+    name: 'Gemini 2.5 Flash Image',
+    vendor: Vendor.Google,
+    description: '专注于图像生成和理解的专项版本（昵称“Nano Banana”），展现极强的视觉处理能力。',
+    url: 'https://ai.google.dev/gemini-api/docs/changelog?hl=zh-cn#08-26-2025'
   },
   {
     id: 'qwen-3-omni',
@@ -128,15 +171,26 @@ export const TIMELINE_DATA: TimelineEvent[] = [
     dateStr: '9月 22日',
     name: 'Qwen 3-Omni',
     vendor: Vendor.Alibaba,
-    description: '具有实时语音和视频交互能力，对标GPT-4o和GPT-5的实时交互体验。'
+    description: '和 gpt5 一样的多模态大模型，无缝处理文本、图像、音频和视频等多种输入形式，并通过实时流式响应同时生成文本与自然语音输出。',
+    url: 'https://qwen.ai/blog?id=65f766fc2dcba7905c1cb69cc4cab90e94126bf4&from=research.latest-advancements-list'
   },
   {
-    id: 'gemini-2-5-image',
+    id: 'claude sonnet 4.5',
+    month: '9月',
+    dateStr: '9月 30日',
+    name: 'Claude sonnet 4.5',
+    vendor: Vendor.Anthropic,
+    description: 'Claude Sonnet 4.5 是世界上最好的编码模型（前端）',
+    url: 'https://www.anthropic.com/news/claude-4-5'
+  },
+  {
+    id: 'claude haiku 4.5',
     month: '10月',
-    dateStr: '10月 2日',
-    name: 'Gemini 2.5 Flash Image',
-    vendor: Vendor.Google,
-    description: '专注于图像生成和理解的专项版本（昵称“Nano Banana”），展现极强的视觉处理能力。'
+    dateStr: '10月 15日',
+    name: 'Claude Haiku 4.5',
+    vendor: Vendor.Anthropic,
+    description: '廉价的 sonnet 4.5',
+    url: 'https://www.anthropic.com/news/claude-4-5'
   },
   {
     id: 'grok-4-1',
@@ -144,7 +198,8 @@ export const TIMELINE_DATA: TimelineEvent[] = [
     dateStr: '11月 17日',
     name: 'Grok 4.1',
     vendor: Vendor.xAI,
-    description: '快速迭代的Thinking版本，宣称在数学和物理推理上再次超越同期竞争对手。'
+    description: '快速迭代的Thinking版本，宣称在数学和物理推理上再次超越同期竞争对手。',
+    url: 'https://x.ai/news/grok-4-1/'
   },
   {
     id: 'gemini-3-pro',
@@ -152,7 +207,17 @@ export const TIMELINE_DATA: TimelineEvent[] = [
     dateStr: '11月 18日',
     name: 'Gemini 3.0 Pro',
     vendor: Vendor.Google,
-    description: '年底重磅，展现多模态原生理解的深厚积累，旨在夺回“最强模型”称号。'
+    description: '年底重磅，展现多模态原生理解的深厚积累，旨在夺回“最强模型”称号。',
+    url: 'https://ai.google.dev/gemini-api/docs/changelog?hl=zh-cn#11-18-2025'
+  },
+  {
+    id: 'Claude Opus 4.5',
+    month: '11月',
+    dateStr: '11月 25日',
+    name: 'Claude Opus 4.5',
+    vendor: Vendor.Anthropic,
+    description: '为了与 Gemini 3 Pro 竞争而发布的。',
+    url: 'https://www.anthropic.com/news/claude-opus-4-5'
   },
   {
     id: 'deepseek-v3-2',
@@ -160,6 +225,7 @@ export const TIMELINE_DATA: TimelineEvent[] = [
     dateStr: '12月 1日',
     name: 'DeepSeek V3.2 & Speciale',
     vendor: Vendor.DeepSeek,
-    description: 'Speciale版本专为复杂推理和Agent任务设计，据称在奥数和编程竞赛题目上达到金牌水平。'
+    description: 'Speciale版本专为复杂推理和Agent任务设计，据称在奥数和编程竞赛题目上达到金牌水平。',
+    url: 'https://api-docs.deepseek.com/zh-cn/news/news251201'
   }
 ];
