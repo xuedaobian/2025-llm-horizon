@@ -41,8 +41,8 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ event, index, isLast }) => 
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
+      viewport={{ once: true, margin: "100px 0px" }}
+      transition={{ duration: 0.3, delay: Math.min(index * 0.02, 0.1) }}
       className="relative pl-8 md:pl-0 group"
     >
       {/* Desktop Layout Grid */}
