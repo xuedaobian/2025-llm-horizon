@@ -2,8 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, Brain, Layers, Code, Zap } from 'lucide-react';
 import { DeepSeek, Claude, Gemini, Qwen } from '@lobehub/icons';
-import { VENDOR_THEMES } from '../constants';
+import { VENDOR_THEMES, TIMELINE_DATA } from '../constants';
 const majorVendorsCount = Object.keys(VENDOR_THEMES).length;
+const publishesCount = TIMELINE_DATA.length;
 const TrendSummary: React.FC = () => {
   return (
     <motion.div 
@@ -25,7 +26,7 @@ const TrendSummary: React.FC = () => {
         {/* 数据统计 */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <div className="bg-slate-800/50 rounded-lg p-4 text-center">
-            <div className="text-3xl font-bold text-indigo-400">21</div>
+            <div className="text-3xl font-bold text-indigo-400">{publishesCount}</div>
             <div className="text-xs text-slate-500 mt-1">重大发布</div>
           </div>
           <div className="bg-slate-800/50 rounded-lg p-4 text-center">
@@ -73,8 +74,8 @@ const TrendSummary: React.FC = () => {
               MoE 架构全面普及
             </h3>
             <p className="text-slate-400 text-sm leading-relaxed">
-              混合专家（MoE）成为主流架构。从 Llama 4 到 DeepSeek V3.1，
-              <span className="text-slate-200 font-medium"> 用更少参数实现更强能力</span>，效率与性能兼得。
+              混合专家（MoE）成为主流架构。从 DeepSeek-R1 到 Gemini3，
+              <span className="text-slate-200 font-medium"> 思考调用工具到超级参数</span>，思考更加深邃。
             </p>
           </div>
 
