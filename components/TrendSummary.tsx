@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, Brain, Layers, Code, Zap } from 'lucide-react';
 import { DeepSeek, Claude, Gemini, Qwen } from '@lobehub/icons';
-
+import { VENDOR_THEMES } from '../constants';
+const majorVendorsCount = Object.keys(VENDOR_THEMES).length;
 const TrendSummary: React.FC = () => {
   return (
     <motion.div 
@@ -28,7 +29,7 @@ const TrendSummary: React.FC = () => {
             <div className="text-xs text-slate-500 mt-1">重大发布</div>
           </div>
           <div className="bg-slate-800/50 rounded-lg p-4 text-center">
-            <div className="text-3xl font-bold text-emerald-400">7</div>
+            <div className="text-3xl font-bold text-emerald-400">{majorVendorsCount}</div>
             <div className="text-xs text-slate-500 mt-1">主要厂商</div>
           </div>
           <div className="bg-slate-800/50 rounded-lg p-4 text-center">
