@@ -1,6 +1,6 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import { TIMELINE_DATA } from './constants';
-import { Vendor } from './types';
+import { Vendor, SortOrder } from './types';
 import TimelineItem from './components/TimelineItem';
 import FilterBar from './components/FilterBar';
 import TrendSummary from './components/TrendSummary';
@@ -8,11 +8,33 @@ import { Sparkles } from 'lucide-react';
 
 const App: React.FC = () => {
   const [selectedVendor, setSelectedVendor] = useState<Vendor | null>(null);
+  const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
+  const timelineRef = useRef<HTMLDivElement>(null);
+
+  const handleVendorSelect = (vendor: Vendor | null) => {
+    setSelectedVendor(vendor);
+    // 滚动到时间线顶部，考虑 sticky header 的偏移
+    setTimeout(() => {
+      if (timelineRef.current) {
+        const offset = 160; // FilterBar 的高度偏移
+        const top = timelineRef.current.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }, 0);
+  };
 
   const filteredEvents = useMemo(() => {
-    if (!selectedVendor) return TIMELINE_DATA;
-    return TIMELINE_DATA.filter((event) => event.vendor === selectedVendor);
-  }, [selectedVendor]);
+    let events = selectedVendor 
+      ? TIMELINE_DATA.filter((event) => event.vendor === selectedVendor)
+      : [...TIMELINE_DATA];
+    
+    // 根据排序顺序排列
+    if (sortOrder === 'desc') {
+      events = [...events].reverse();
+    }
+    
+    return events;
+  }, [selectedVendor, sortOrder]);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-indigo-500/30">
@@ -37,9 +59,14 @@ const App: React.FC = () => {
       </header>
 
       <main className="relative z-10 max-w-5xl mx-auto pb-24">
-        <FilterBar selectedVendor={selectedVendor} onSelect={setSelectedVendor} />
+        <FilterBar 
+          selectedVendor={selectedVendor} 
+          onSelect={handleVendorSelect}
+          sortOrder={sortOrder}
+          onSortChange={setSortOrder}
+        />
 
-        <div className="mt-12 px-4 md:px-8">
+        <div ref={timelineRef} className="mt-12 px-4 md:px-8">
           {filteredEvents.length === 0 ? (
             <div className="text-center py-20 text-slate-500">
               该筛选条件下未找到发布记录。

@@ -49,6 +49,27 @@ export const VENDOR_THEMES: Record<Vendor, VendorConfig> = {
     badgeColor: 'bg-purple-500/20 text-purple-300',
     textColor: 'text-purple-400',
     icon: 'Claude'
+  },
+  [Vendor.kimi]: {
+    color: 'bg-pink-500',
+    borderColor: 'border-pink-500',
+    badgeColor: 'bg-pink-500/20 text-pink-300',
+    textColor: 'text-pink-400',
+    icon: 'kimi'
+  },
+  [Vendor.miniMax]: {
+    color: 'bg-yellow-500',
+    borderColor: 'border-yellow-500',
+    badgeColor: 'bg-yellow-500/20 text-yellow-300',
+    textColor: 'text-yellow-400',
+    icon: 'miniMax'
+  },
+  [Vendor.zhipu]: {
+    color: 'bg-red-500',
+    borderColor: 'border-red-500',
+    badgeColor: 'bg-red-500/20 text-red-300',
+    textColor: 'text-red-400',
+    icon: 'zhipu'
   }
 };
 
@@ -135,6 +156,15 @@ export const TIMELINE_DATA: TimelineEvent[] = [
     url: 'https://api-docs.deepseek.com/zh-cn/news/news250528'
   },
   {
+    id: 'minimax-m1',
+    month: '6月',
+    dateStr: '6月16日',
+    name: 'miniMax M1',
+    vendor: Vendor.miniMax,
+    description: 'miniMax M1 是全球首个开源大规模混合架构的推理模型，挽救之作',
+    url: 'https://www.minimaxi.com/news/minimaxm1'
+  },
+  {
     id: 'gemini-2-5',
     month: '6月',
     dateStr: '6月17日',
@@ -142,6 +172,24 @@ export const TIMELINE_DATA: TimelineEvent[] = [
     vendor: Vendor.Google,
     description: '针对“适应性思考”优化。Flash降低延迟，Pro在编码和数学基准测试中刷新记录。',
     url: 'https://ai.google.dev/gemini-api/docs/changelog?hl=zh-cn#06-17-2025'
+  },
+  {
+    id: 'Kimi K2',
+    month: '7月',
+    dateStr: '7月10日',
+    name: 'Kimi K2',
+    vendor: Vendor.kimi,
+    description: 'Kimi K2,月之暗面的救世主，有种让公司起死回生的感觉。',
+    url: 'https://moonshotai.github.io/Kimi-K2/'
+  },
+  {
+    id: 'glm-4.5',
+    month: '7月',
+    dateStr: '7月28日',
+    name: 'GLM 4.5',
+    vendor: Vendor.zhipu,
+    description: '专为智能体应用打造的基础模型,claude sonnet的国产平替',
+    url: 'https://docs.bigmodel.cn/cn/guide/models/text/glm-4.5'
   },
   {
     id: 'gpt-5',
@@ -173,7 +221,7 @@ export const TIMELINE_DATA: TimelineEvent[] = [
   {
     id: 'qwen-3-omni',
     month: '9月',
-    dateStr: '9月 22日',
+    dateStr: '9月22日',
     name: 'Qwen 3-Omni',
     vendor: Vendor.Alibaba,
     description: '和 gpt5 一样的多模态大模型，无缝处理文本、图像、音频和视频等多种输入形式，并通过实时流式响应同时生成文本与自然语音输出。',
@@ -182,25 +230,43 @@ export const TIMELINE_DATA: TimelineEvent[] = [
   {
     id: 'claude sonnet 4.5',
     month: '9月',
-    dateStr: '9月 30日',
+    dateStr: '9月30日',
     name: 'Claude sonnet 4.5',
     vendor: Vendor.Anthropic,
     description: 'Claude Sonnet 4.5 是世界上最好的编码模型（前端）',
     url: 'https://www.anthropic.com/news/claude-4-5'
   },
   {
+    id: 'glm-4.6',
+    month: '9月',
+    dateStr: '9月30日',
+    name: 'GLM 4.6',
+    vendor: Vendor.zhipu,
+    description: '依旧物美价廉，GLM-4.6 实测超过 Claude Sonnet 4',
+    url: 'https://docs.bigmodel.cn/cn/guide/models/text/glm-4.6'
+  },
+  {
     id: 'claude haiku 4.5',
     month: '10月',
-    dateStr: '10月 15日',
+    dateStr: '10月15日',
     name: 'Claude Haiku 4.5',
     vendor: Vendor.Anthropic,
     description: '廉价的 sonnet 4.5',
     url: 'https://www.anthropic.com/news/claude-4-5'
   },
   {
+    id: 'minimax-m2',
+    month: '10月',
+    dateStr: '10月27日',
+    name: 'miniMax M2',
+    vendor: Vendor.miniMax,
+    description: '和 kimi-K2 以及 glm4.6 竞争 claude sonnet 国产平替（仅限cc）',
+    url: 'https://www.minimaxi.com/news/minimax-m2'
+  },
+  {
     id: 'grok-4-1',
     month: '11月',
-    dateStr: '11月 17日',
+    dateStr: '11月17日',
     name: 'Grok 4.1',
     vendor: Vendor.xAI,
     description: '快速迭代的Thinking版本，宣称在数学和物理推理上再次超越同期竞争对手。',

@@ -5,8 +5,13 @@ export enum Vendor {
   Meta = 'Meta',
   Alibaba = 'Alibaba Cloud',
   OpenAI = 'OpenAI',
-  Anthropic = 'Anthropic'
+  Anthropic = 'Anthropic',
+  kimi = 'kimi',
+  miniMax = 'miniMax',
+  zhipu = 'zhipu'
 }
+
+export type SortOrder = 'asc' | 'desc';
 
 export interface TimelineEvent {
   id: string;
